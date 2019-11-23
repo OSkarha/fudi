@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+@import 'normalize';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    font-size: 10px;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font: 1.4rem/1.8 'Lato', sans-serif;;
+    color: #b5b5b5;
+}
+
+.container {
+    margin: 50px auto;
+    max-width: 1200px;
+    width: 96%;
+   
+    &--light {
+        margin: 50px auto 0 auto;     
+    }
+}
+
+h1, h2, h3{
+    line-height: 1.2;
+}
+
+h1{
+    font-size: 10rem;
+}
+
+h2{
+    font-size: 3.6rem;
+}
+
+h3{
+    font-size: 1.3rem;
+}
+
+.slider{
+    text-align: center;
+}
+
+.cover{
+    height: 100vh;
+    color: #fff;
+    background-color: #725a7c;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    & .after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        color: #4a3949;
+    }
+
+    &__title,
+    &__subtitle{
+        margin: 0;
+    }
+
+    &__subtitle{
+       font-family: "Times New Roman", serif;
+        font-style: italic;
+    }
+        
+    &__text{
+        margin-bottom: 1.5  rem;
+        font-weight: 400;
+    }
+
+}
+
+
+    
+
+/*Navigation*/
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    &__registration{
+        // display: inline-block;
+        align-items: baseline;
+    }
+
+    & a{
+        color: #fff;
+        text-decoration: none;
+        transition: all .15s ease-in-out;
+        opacity: 0.9;
+        
+        @include hover {
+            color: #f47365;
+        }
+    }
+}
+
+.menu{
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin: .5rem;
+   
+   &__item{
+       display: inline-block;
+   }
+   
+   &__link{
+       font-size: 1.6rem;
+       padding: 1rem;
+       border-bottom: 3px solid transparent;
+       @include hover {
+        color: #f47365;
+        border-color:#f47365;
+    }
+   }
+}
+
+.burger{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url(../img/btn_menu.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include hover {
+        opacity: .5;
+    }
+}
+
+
+
+/*Buttons */
+.btn{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 1.1rem;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+    display: inline-block;
+    margin: 2rem;
+    @include hover {
+        color: #f47365;
+        border-color: #f47365;
+    }
+}
+
+
+
+.section{
+    padding: 7.2rem;
+    color: #585858;
+    &--white{
+        background-color: #fff;
+        font-size: 1.6rem;
+        padding: 100px 80px 40px;
+        text-align: center;
+    }
+    
+    &--light{
+        background-color: #f7f7f7;
+        padding: 7.2rem 7.2rem 0; 
+    }
+
+
+}
+
+.get-images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3em;
+}
+
+.get-image {
+    
+    width: 32%;
+    padding: 30px;
+    
+    &__wrap{
+       width: 110px;
+       height: 110px;
+       display: block;
+       margin-left: auto;
+    margin-right: auto; 
+    
+       position: relative;
+       overflow: hidden;
+       border-radius: 10px;
+       margin-bottom: 30px;
+       border: 2px solid #000;
+       border-radius: 50%;
+    }
+
+    &__img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+    }
+    &__name{
+        @include text (#141414, "lato", 1.8rem, 700, 1.7);
+        @include line ();
+        &:after { 
+            left: 50px;
+            right: 50px;
+            
+        }
+    }
+
+    &__about {
+        @include text (#141414, "lato", 1.6rem, 300, 1.7);
+        margin-top: 5px;
+        max-height: 19rem;
+        overflow: hidden;
+        color: #141414;
+
+        @media screen and (max-width:1195px){
+            max-height: 30rem;
+        }
+    }
+}
+
+.apps{
+    display: flex;
+    font-size: 0;
+    
+}
+
+.app{
+    width: 45%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+
+    &__name{
+        @include text (#141414, "lato", 1.8rem, 700, 1.7);
+        @include line ();
+        &:after {
+            left: 0px;
+            right: 80%;
+        }
+    }
+
+    &__about {
+        @include text (#141414, "lato", 1.6rem, 300, 1.7);
+        margin-top: 5px;
+        max-height: 59rem;
+        overflow: hidden;
+        color: #141414;
+
+        @media screen and (max-width:1195px){
+            max-height: 30rem;
+        }
+    }
+
+   &__info{
+        width: 45%;
+        margin-left: 10%;
+    }
+    
+    &__img{
+        width: 100%; 
+       position: relative; 
+    }
+    
+    &__interface{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-49.5%, -29.5%);
+        width: 83%;
+        z-index: 0;
+
+
+        @media screen and (max-width:1195px) {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-49.5%, -30%);
+                width: 83%;
+        }
+
+        @media screen and (max-width:1195px) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-49.5%, -31%);
+            width: 83%;
+        }
+    }
+
+    &__links{
+        display: flex;
+        padding: 0;
+        margin: 15px 0;
+    }
+    
+    &__link{
+        padding-right: 10px;
+
+    }
+}
+
+
+
+
+.reviews{
+    min-height: 460px;
+    background-color: #4a3949;
+    background-image: url(../img/Lay17.png), linear-gradient(to right, #4a3949, #4a3949);
+    background-repeat: no-repeat, repeat;
+    background-position: center, center;
+    background-size: cover;
+}
+    
+    
+.review{
+    padding: 80px 80px 0;
+    &__wrap{
+       width: 120px;
+       height: 120px;
+       margin-left: auto;
+        margin-right: auto; 
+       overflow: hidden;
+       border: 7px solid #958c95;
+       border-radius: 50%;
+       position: relative;
+       
+       
+    }
+    &__img{
+       position: absolute;
+       left: 50%;
+       transform: translate(-40%);
+    }
+
+&__text{
+    @include text (#f4f3f4, "lato", 3rem, 300, 1.5); 
+    opacity: .3;
+    &:before {
+        content: "\201C"; 
+        }
+    &:after {
+        content: "\201D"; 
+        }
+}
+
+&__author{
+    @include text (#f4f3f4, "lato", 1.8rem, 300, 2); 
+    text-decoration: none;
+    opacity: .3;
+    &:before {
+        content: " - "; 
+        }
+    &:after {
+        content: " - "; 
+        }
+}
+
+}
+
+.slider{
+&__dots{
+    padding: 20px 80px 80px;
+    margin: 0;
+
+    li{
+        display: inline-block;
+    }
+
+}
+
+&__dot{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background-color: #f4f3f4;
+    opacity: .4;
+    margin: 0 7px;
+    &--active{
+        border-color: #f4f3f4;
+        background-color: #f4f3f4;
+        opacity: 1;
+        }
+        @include hover{        
+        border-color: #f4f3f4;
+        background-color: #f4f3f4;
+        opacity: 1;
+        }
+    }
+}
+
+.browse{
+    @include text (#141414, "lato", 1.8rem, 700, 1.7);
+    opacity: .7;
+    padding: 100px 80px 10px;
+    @include line;
+    &:after {
+        left: 38%;
+        right: 38%;
+    }
+
+}
+
+
+.kitchens{
+    display: flex;
+}
